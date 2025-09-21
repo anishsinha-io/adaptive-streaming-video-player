@@ -1,0 +1,9 @@
+.clangd
+.cache/
+scratch/
+build/
+target/
+build-web/
+compile_commands.json
+
+.DS_Store

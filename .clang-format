@@ -1,0 +1,8 @@
+BasedOnStyle: Google
+IndentWidth: 2
+DerivePointerAlignment: false
+PointerAlignment: Left
+AccessModifierOffset: -2
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveMacros: Consecutive
