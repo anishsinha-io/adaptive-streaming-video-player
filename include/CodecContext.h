@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "Frame.h"
 #include "Packet.h"
 
@@ -15,6 +13,7 @@ class CodecContext {
 public:
   CodecContext(const AVCodecParameters* params);
   CodecContext(const AVCodecParameters*, AVDictionary** options);
+  ~CodecContext() { avcodec_free_context(&m_Inner); }
 
   int             Width() { return m_Inner->width; }
   int             Height() { return m_Inner->height; }
@@ -24,13 +23,5 @@ public:
   int             ReceiveFrame(Frame* frame);
 
 private:
-  struct Deleter {
-    void operator()(AVCodecContext* ctx) {
-      if (ctx) {
-        avcodec_free_context(&ctx);
-      }
-    }
-  };
-
-  std::unique_ptr<AVCodecContext, Deleter> m_Inner;
+  AVCodecContext* m_Inner;
 };

@@ -31,6 +31,7 @@ set(
     src/Video.cc
     src/Frame.cc
     src/VideoStream.cc
+    src/StreamContext.cc
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)

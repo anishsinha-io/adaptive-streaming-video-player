@@ -19,7 +19,7 @@ FormatContext::FormatContext(const std::string& hls_package_uri)
     exit(1);
   }
 
-  m_Inner = std::unique_ptr<AVFormatContext, Deleter>(fmt_ctx);
+  m_Inner = fmt_ctx;
 }
 
-AVFormatContext* FormatContext::Raw() { return m_Inner.get(); }
+AVFormatContext* FormatContext::Raw() { return m_Inner; }

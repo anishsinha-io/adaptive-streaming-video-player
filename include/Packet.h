@@ -1,7 +1,5 @@
 #pragma once
 
-#include <memory>
-
 #include "FormatContext.h"
 
 extern "C" {
@@ -11,6 +9,7 @@ extern "C" {
 class Packet {
 public:
   Packet();
+  ~Packet() { av_packet_free(&m_Inner); }
 
   void      Unref();
   AVPacket* Raw();
@@ -19,13 +18,5 @@ public:
   int ReadFrame(FormatContext* fmt_ctx);
 
 private:
-  struct Deleter {
-    void operator()(AVPacket* pkt) {
-      if (pkt) {
-        av_packet_free(&pkt);
-      }
-    }
-  };
-
-  std::unique_ptr<AVPacket, Deleter> m_Inner;
+  AVPacket* m_Inner;
 };

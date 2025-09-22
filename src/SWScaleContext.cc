@@ -1,3 +1,3 @@
 #include "SWScaleContext.h"
 
-struct SwsContext* SWScaleContext::Raw() { return m_Inner.get(); }
+struct SwsContext* SWScaleContext::Raw() { return m_Inner; }

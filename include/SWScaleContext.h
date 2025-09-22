@@ -1,6 +1,6 @@
 #pragma once
 
-#include <memory>
+#include <utility>
 
 extern "C" {
 #include <libswscale/swscale.h>
@@ -16,7 +16,7 @@ public:
 
   template <typename... Args>
   int Scale(Args&&... args) {
-    return sws_scale(m_Inner.get(), std::forward<Args>(args)...);
+    return sws_scale(m_Inner, std::forward<Args>(args)...);
   }
 
 private:
@@ -28,5 +28,5 @@ private:
     }
   };
 
-  std::unique_ptr<struct SwsContext, Deleter> m_Inner;
+  struct SwsContext* m_Inner;
 };

@@ -13,13 +13,13 @@ CodecContext::CodecContext(const AVCodecParameters* params,
   AVCodecContext* ctx = avcodec_alloc_context3(codec);
   avcodec_parameters_to_context(ctx, params);
   avcodec_open2(ctx, codec, options);
-  m_Inner = std::unique_ptr<AVCodecContext, Deleter>(ctx);
+  m_Inner = ctx;
 }
 
-AVCodecContext* CodecContext::Raw() { return m_Inner.get(); }
+AVCodecContext* CodecContext::Raw() { return m_Inner; }
 int             CodecContext::SendPacket(Packet* pkt) {
-  return avcodec_send_packet(m_Inner.get(), pkt->Raw());
+  return avcodec_send_packet(m_Inner, pkt->Raw());
 }
 int CodecContext::ReceiveFrame(Frame* frame) {
-  return avcodec_receive_frame(m_Inner.get(), frame->Raw());
+  return avcodec_receive_frame(m_Inner, frame->Raw());
 }

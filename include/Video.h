@@ -54,12 +54,9 @@ private:
   std::unique_ptr<Packet>         m_Pkt;
   std::unique_ptr<Frame>          m_Frame;
   std::unique_ptr<SWScaleContext> m_SwsCtx;
-  int                             m_CurrentAudioStreamIndex;
 
   std::unique_ptr<VideoStreamVariant> m_CurrentStream;
-
-  std::vector<VideoStreamVariant> m_VideoStreamLadder;
-  std::vector<AudioStreamVariant> m_AudioStreamLadder{};
+  std::vector<VideoStreamVariant>     m_VideoStreamLadder;
 
   std::array<uint8_t*, 4> m_RgbData{};
   std::array<int, 4>      m_RgbStride{};
