@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
 
 extern "C" {
@@ -21,7 +20,6 @@ private:
       if (frame) {
         av_frame_free(&frame);
       }
-      std::cout << "destruct frame" << "\n";
     }
   };
 

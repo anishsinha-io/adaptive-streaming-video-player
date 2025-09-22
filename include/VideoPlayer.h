@@ -14,6 +14,9 @@ public:
   void SetTargetDisplayDimensions(int x, int y) noexcept;
   void Update();
   void Play();
+  void SetShouldBeAdaptive(bool should_adapt) noexcept {
+    m_Adaptive = should_adapt;
+  }
 
 private:
   std::unique_ptr<Video>     m_Src;
@@ -24,4 +27,5 @@ private:
   double                     m_PauseOffset{0.0F};
   double                     m_Clock{0.0F};
   double                     m_FrameTimer{0.0F};
+  bool                       m_Adaptive{true};
 };

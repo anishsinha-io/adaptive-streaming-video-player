@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
 
 #include "Frame.h"
@@ -30,7 +29,6 @@ private:
       if (ctx) {
         avcodec_free_context(&ctx);
       }
-      std::cout << "destruct codeccontext" << "\n";
     }
   };
 

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
 #include <string>
 
@@ -24,10 +23,6 @@ public:
   }
 
   AVFormatContext* Raw();
-  int              BestVideoStream() {
-    return av_find_best_stream(m_Inner.get(), AVMEDIA_TYPE_VIDEO, -1, -1, NULL,
-                                            0);
-  }
 
 private:
   struct Deleter {
@@ -35,7 +30,6 @@ private:
       if (ctx) {
         avformat_close_input(&ctx);
       }
-      std::cout << "destruct formatcontext" << "\n";
     }
   };
 

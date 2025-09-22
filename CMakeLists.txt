@@ -30,6 +30,7 @@ set(
     src/SWScaleContext.cc
     src/Video.cc
     src/Frame.cc
+    src/VideoStream.cc
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)

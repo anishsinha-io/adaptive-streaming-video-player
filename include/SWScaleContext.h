@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
 
 extern "C" {
@@ -26,8 +25,6 @@ private:
       if (ctx) {
         sws_freeContext(ctx);
       }
-
-      std::cout << "destruct swscontext" << "\n";
     }
   };
 

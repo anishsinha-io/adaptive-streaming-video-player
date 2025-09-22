@@ -2,6 +2,8 @@
 
 #include <raylib.h>
 
+#include <iostream>
+
 void VideoPlayer::SetTargetDisplayDimensions(int x, int y) noexcept {
   m_TargetDisplayDimensions.first  = x;
   m_TargetDisplayDimensions.second = y;

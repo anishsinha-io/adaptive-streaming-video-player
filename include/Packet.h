@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
 
 #include "FormatContext.h"
@@ -25,7 +24,6 @@ private:
       if (pkt) {
         av_packet_free(&pkt);
       }
-      std::cout << "destruct packet" << "\n";
     }
   };
 
